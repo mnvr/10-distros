@@ -12,6 +12,8 @@
   --main-margin: 2rem;
   --h1-fs: 7em;
   --mob-only: none;
+  --background-color: rgb(218 255 52);
+  --color: rgb(17 17 17);
 }
 @media (width < 700px) {
   :root {
@@ -26,10 +28,8 @@
   }
 }
 body {
-  background-color: rgb(255 219 0);
-  color: rgb(34 34 19);
-  background-color: rgb(218 255 52);
-  color: rgb(17 17 17);
+  background-color: var(--background-color);
+  color: var(--color);
   margin: 0;
 }
 .h1c {
@@ -43,7 +43,6 @@ h1 {
   font-size: var(--h1-fs);
   font-weight: 900;
   margin-inline: var(--main-margin);
-
 }
 .h1-in {
   font-size: smaller;
@@ -56,6 +55,22 @@ h1 {
 }
 .dlist-mob {
   display: var(--mob-only);
+}
+section.one {
+  margin-block: 4rem;
+  margin-inline: var(--main-margin);
+  font-family: sans-serif;
+  max-width: 40rem;
+}
+section.host {
+  margin-inline: var(--main-margin);
+}
+a {
+  color: inherit;
+  text-decoration: none;
+  background-color: var(--color);
+  color: var(--background-color);
+  padding: 0.1em 0.2em;
 }
 </style>
 <body>
@@ -77,6 +92,28 @@ alpine · alpine · alpine · alpine · alpine · alpine · alpine · alpine · 
 alpine · alpine · alpine · alpine · alpine · alpine · alpine · alpine · alpine ·
 alpine · alpine · alpine · alpine · alpine · alpine · alpine · alpine · alpine ·
 </div>
+
+<section class="one">
+<p>
+Armed with nothing but <b>qemu</b>, I set about rediscovering the joy of
+mindless tinkering by installing 10 distros in 10 days. This is what I found.
+</p>
+</section>
+
+<section class="host">
+<h3><em>the host</em></h3>
+<p>
+the most boring part is upfront, preparing the host machine. luckily, there is
+only one thing to install &mdash; <b><a href="https://www.qemu.org"
+target="_blank">qemu</a></b><br>&nbsp;
+</p>
+<p>
+qemu is not a toy, it is what powers the clouds that your company runs on. in
+particular, if we install an OS that uses the same architecture as our host
+machine, we can use qemu to &ldquo;virtualize&rdquo; it &mdash; that is, run it
+at almost native speed.
+</p>
+</section>
 
 </body>
 
