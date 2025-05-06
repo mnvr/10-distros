@@ -11,6 +11,7 @@
   color-scheme: light dark;
   --main-margin: 2rem;
   --h1-fs: 7em;
+  --mob-only: none;
 }
 @media (width < 700px) {
   :root {
@@ -21,6 +22,7 @@
 @media (width < 400px) {
   :root {
     --h1-fs: 3.75em;
+    --mob-only: initial;
   }
 }
 body {
@@ -30,22 +32,51 @@ body {
   color: rgb(17 17 17);
   margin: 0;
 }
+.h1c {
+  display: flex;
+  min-height: 60svh;
+  align-items: center;
+}
+
 h1 {
   font-family: sans-serif;
   font-size: var(--h1-fs);
   font-weight: 900;
   margin-inline: var(--main-margin);
+
 }
 .h1-in {
   font-size: smaller;
   font-family: serif;
   font-style: italic;
 }
+.dlist {
+  text-wrap: nowrap;
+  overflow: hidden;
+}
+.dlist-mob {
+  display: var(--mob-only);
+}
 </style>
 <body>
 
+<div class="h1c">
 <h1>10 distros <span class="h1-in">in</span><br> 10 days</h1>
+</div>
 
+<div class="dlist">
+alpine · alpine · alpine · alpine · alpine · alpine · alpine · alpine · alpine ·
+alpine · alpine · alpine · alpine · alpine · alpine · alpine · alpine · alpine ·
+alpine · alpine · alpine · alpine · alpine · alpine · alpine · alpine · alpine ·
+alpine · alpine · alpine · alpine · alpine · alpine · alpine · alpine · alpine ·
+</div>
+
+<div class="dlist dlist-mob">
+alpine · alpine · alpine · alpine · alpine · alpine · alpine · alpine · alpine ·
+alpine · alpine · alpine · alpine · alpine · alpine · alpine · alpine · alpine ·
+alpine · alpine · alpine · alpine · alpine · alpine · alpine · alpine · alpine ·
+alpine · alpine · alpine · alpine · alpine · alpine · alpine · alpine · alpine ·
+</div>
 
 </body>
 
