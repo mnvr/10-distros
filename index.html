@@ -74,10 +74,16 @@ section.host {
 }
 a {
   color: inherit;
+}
+a:not(.rev) {
+  text-underline-offset: 0.2em;
+}
+a.rev {
   text-decoration: none;
   background-color: var(--color);
   color: var(--background-color);
   padding: 0.1em 0.2em;
+  font-weight: bold;
 }
 section.host p {
   max-width: 29rem;
@@ -113,9 +119,9 @@ mindless tinkering by installing 10 distros in 10 days. This is what I found.
 <section class="host mb">
 <h3>the host</h3>
 <p>
-the most boring part is upfront, preparing the host machine. luckily, there
-is only one thing to install &mdash; <b><a href="https://www.qemu.org"
-target="_blank">qemu</a></b>
+the most boring part is upfront, preparing the host machine. luckily, there is
+only one thing to install &mdash; <a class="rev" href="https://www.qemu.org"
+target="_blank">qemu</a>
 </p>
 <pre>brew install qemu
 </pre>
@@ -126,11 +132,11 @@ well, that was easy.
 <section class="machine mb">
 <h3>the machine</h3>
 <p>
-if we install an OS in a qemu machine (&ldquo;VM&rdquo;) that has the same
-architecture as our host machine, it runs at ~native speed (that how clouds
-work, they use qemu too!). I also want nice graphics, and sound. After a bunch
-of tinkering, I arrived at a qemu invocation that I then put in a trivial shell
-script.
+if we install an OS in a qemu machine (&ldquo;VM&rdquo;) that has the same CPU
+architecture as our host machine, it&rsquo;ll run at ~native speed (that how
+clouds work, <em>theyqemutoo</em>). I also want nice graphics, and sound. After
+some <a href="https://mnvr.in/linux-qemu" target="_blank">experimentation</a>, I
+arrive at a qemu invocation that I then put in a simple shell script.
 </p>
 
 </section>
