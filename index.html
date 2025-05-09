@@ -58,19 +58,16 @@ h1 {
 p {
   line-height: 1.3;
 }
-section.mb {
+section.margined {
   margin-block: 4rem;
+  margin-inline: var(--main-margin);
 }
-section.mb h3 {
+section.margined h3 {
   font-style: italic;
 }
 section.one {
-  margin-inline: var(--main-margin);
   font-family: sans-serif;
   max-width: 40rem;
-}
-section.host {
-  margin-inline: var(--main-margin);
 }
 a {
   color: inherit;
@@ -85,11 +82,14 @@ a.rev {
   padding: 0.1em 0.2em;
   font-weight: bold;
 }
-section.host p {
+section.text p {
   max-width: 29rem;
 }
 pre {
   overflow-x: scroll;
+}
+section.text pre {
+  margin-block: 2lh;
 }
 </style>
 <body>
@@ -112,14 +112,14 @@ alpine · alpine · alpine · alpine · alpine · alpine · alpine · alpine · 
 alpine · alpine · alpine · alpine · alpine · alpine · alpine · alpine · alpine ·
 </div>
 
-<section class="one mb">
+<section class="one margined">
 <p>
 Armed with nothing but <b>qemu</b>, I set about rediscovering the joy of
 mindless tinkering by installing 10 distros in 10 days. This is what I found.
 </p>
 </section>
 
-<section class="host mb">
+<section class="host margined text">
 <h3>the host</h3>
 <p>
 the most boring part is upfront, preparing the host machine. luckily, there is
@@ -131,15 +131,16 @@ target="_blank">qemu</a>
 <p>
 well, that was easy.
 </p>
+</section>
 
-<section class="machine mb">
+<section class="machine margined text">
 <h3>the machine</h3>
 <p>
 if we install an OS in a qemu machine (&ldquo;VM&rdquo;) that has the same CPU
 architecture as our host machine, it&rsquo;ll run at ~native speed (that how
 clouds work, <em>theyqemutoo</em>). I also want nice graphics, and sound. After
-some <a href="https://mnvr.in/linux-qemu" target="_blank">experimentation</a>, I
-arrive at a qemu invocation that I then put in a simple shell script.
+<a href="https://mnvr.in/linux-qemu" target="_blank">experimenting</a>, I arrive
+at a qemu invocation that I put in a shell script.
 </p>
 
 <pre>#!/bin/sh
@@ -171,10 +172,19 @@ qemu-system-aarch64 \
   $*
 </pre>
 <p>
-I put this in a file named <code>qvm</code> and <code>chmod u+x qvm</code> -ed
-it.
+I name this shell script <code>qvm</code> and <code>chmod u+x qvm</code> it.
 </p>
+that's all prep done. <b><em>let's go!</em></b>
+</section>
 
+<style>
+section#alpine img {
+  width: 100%;
+}
+</style>
+
+<section id="alpine">
+<img src="i/alpine/banner.avif">
 </section>
 
 </body>
