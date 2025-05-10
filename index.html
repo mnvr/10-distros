@@ -80,10 +80,12 @@ a:not(.rev) {
 }
 a.rev {
   text-decoration: none;
-  background-color: var(--color);
-  color: var(--background-color);
   padding: 0.1em 0.2em;
   font-weight: bold;
+}
+section.host a.rev {
+  background-color: var(--color);
+  color: var(--background-color);
 }
 section.text p {
   max-width: 29rem;
@@ -123,8 +125,8 @@ mindless tinkering by installing 10 distros in 10 days. This is what I found.
 <h3>the host</h3>
 <p>
 the most boring part is upfront, preparing the host machine. luckily, there is
-only one thing to install &mdash; <a class="rev" href="https://www.qemu.org"
-target="_blank">qemu</a>
+only one thing to install &mdash; <a class="rev rev-base"
+href="https://www.qemu.org" target="_blank">qemu</a>
 </p>
 <pre>brew install qemu
 </pre>
@@ -179,7 +181,10 @@ that's all prep done. <b><em>let's go!</em></b>
 
 <style>
 section#alpine {
-  background-color: rgb(157, 213, 246);
+  --a-blue: rgb(43, 145, 234);
+  background-color: var(--a-blue);
+  color: white;
+  padding-block-end: 1rlh;
 
   div.banner {
     display: grid;
@@ -200,6 +205,13 @@ section#alpine {
     filter: invert(1);
     z-index: 1;
   }
+  p, pre {
+   margin-inline: var(--main-margin);
+  }
+  a.rev {
+    background-color: white;
+    color: var(--a-blue);
+  }
 }
 </style>
 
@@ -210,7 +222,15 @@ section#alpine {
 <img class="logo" src="i/alpine/alpinelinux-logo.svg">
 </div>
 </div>
-<h1>Alpine</h1>
+<p>
+<a class="rev" href="https://alpinelinux.org" target="_blank">
+alpinelinux.org
+</a>
+</p>
+<pre>mkdir alpine && cd alpine
+curl -fLO 'https://dl-cdn.alpinelinux.org/alpine/v3.21/releases/aarch64/alpine-standard-3.21.3-aarch64.iso'
+../qvm -cdrom alpine-*.iso
+</pre>
 
 </section>
 
