@@ -180,6 +180,27 @@ that's all prep done. <b><em>let's go!</em></b>
 </section>
 
 <style>
+section.distro {
+  div.ss {
+    position: relative;
+  }
+
+  div.ss .label {
+    position: absolute;
+    top: -0.5em;
+    left: 0.5em;
+    background-color: white;
+    color: black;
+    font-family: sans-serif;
+    font-weight: bold;
+    padding: 0.2em 0.3em;
+  }
+
+  div.ss img {
+    max-width: 100%;
+  }
+}
+
 section#alpine {
   --a-blue: rgb(43, 145, 234);
   background-color: var(--a-blue);
@@ -239,7 +260,7 @@ section#alpine {
 }
 </style>
 
-<section id="alpine">
+<section id="alpine" class="distro">
 <div class="banner">
 <img class="banner" src="i/alpine/banner.avif">
 <div class="logo">
@@ -275,6 +296,11 @@ login as root again, and install X.
 <p>
 which one? let's try them all!
 </p>
+
+<div class="ss">
+<div class="label">gnome</div>
+<img src="i/alpine/ss-4.avif">
+</div>
 
 </section>
 
