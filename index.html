@@ -199,6 +199,11 @@ section.distro {
   div.ss img {
     max-width: 100%;
   }
+
+  aside {
+    margin-inline: var(--main-margin);
+    border-inline-start: 1px dashed color-mix(in srgb, currentColor, transparent);
+  }
 }
 
 section#alpine {
@@ -301,6 +306,47 @@ which one? let's try them all!
 <div class="label">gnome</div>
 <img src="i/alpine/ss-4.avif">
 </div>
+
+<p>
+looks great. supports color profiles (otherwise the colors look washed out on P3
+displays). fonts look crisp.
+</p>
+<p>
+sluggish though. and it also hung the first time it went to sleep. both are
+likely not be inherent problems but issues with my emulation.
+</p>
+
+<aside>
+<p>
+to start the machine again,
+</p>
+
+<pre>../qvm
+</pre>
+
+<p>
+no need to put back the cdrom.
+</p>
+</aside>
+
+<p>
+to try the rest, I rerun <code>setup-desktop</code> again. to do this
+conveniently as a regular user
+</p>
+
+<pre>su
+apk add doas
+echo 'permit nopass m' > /etc/doas.d/doas.conf
+^D
+doas setup-desktop
+</pre>
+
+<p>
+the alpine
+<a
+href="https://docs.alpinelinux.org/user-handbook/0.1a/Working/post-install.html#_granting_your_user_administrative_access"
+target="_blank">post-install handbook</a> is a helpful read.
+</p>
 
 </section>
 
