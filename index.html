@@ -284,7 +284,8 @@ curl -fLO 'https://dl-cdn.alpinelinux.org/alpine/v3.21/releases/aarch64/alpine-s
 <div class="bss ss-1">
 <img class="bss ss-1" src="i/alpine/ss-1.avif">
 </div>
-<p><kbd>ENTER</kbd> <kbd>ENTER</kbd>, then <code>reboot</code>.
+<p><kbd>ENTER</kbd> <kbd>ENTER</kbd>, <code>reboot</code>.
+
 <div class="bss ss-2">
 <img class="bss ss-2" src="i/alpine/ss-2.avif">
 </div>
@@ -302,6 +303,8 @@ login as root again, and install X.
 which one? let's try them all!
 </p>
 
+<p><code>gnome</code>, <kbd>ENTER</kbd>, <code>reboot</code></p>
+
 <div class="ss">
 <div class="label">gnome</div>
 <img src="i/alpine/ss-4.avif">
@@ -312,8 +315,8 @@ looks great. supports color profiles (otherwise the colors look washed out on P3
 displays). fonts look crisp.
 </p>
 <p>
-sluggish though. and it also hung the first time it went to sleep. both are
-likely not be inherent problems but issues with my emulation.
+sluggish though (possibly, because while the CPU's native, the graphics card I'm
+using &mdash; <code>virtio-gpu</code> &mdash; is emulated).
 </p>
 
 <aside>
@@ -323,7 +326,6 @@ to start the machine again,
 
 <pre>../qvm
 </pre>
-
 <p>
 no need to put back the cdrom.
 </p>
@@ -338,15 +340,29 @@ conveniently as a regular user
 apk add doas
 echo 'permit nopass m' > /etc/doas.d/doas.conf
 ^D
-doas setup-desktop
 </pre>
 
 <p>
-the alpine
-<a
+the alpine <a
 href="https://docs.alpinelinux.org/user-handbook/0.1a/Working/post-install.html#_granting_your_user_administrative_access"
 target="_blank">post-install handbook</a> is a helpful read.
 </p>
+
+<p>installing plasma this time,</p>
+
+<pre>doas setup-desktop
+reboot
+</pre>
+
+<p>I get something different, but traces of gnome. have I summoned a hybrid?
+quick, let me recreate the entire machine</p>
+
+<pre>rm disk.qcow2
+../qvm -cdrom alpine-*.iso
+setup-alpine -q
+setup-desktop
+reboot
+</pre>
 
 </section>
 
