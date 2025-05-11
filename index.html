@@ -513,7 +513,6 @@ before, then reboot.
 
 <p>similar to plasma; less polished, but faster.</p>
 
-
 <aside>
 <p>
 before moving on to the next distro, I'd like to take this chance to thank
@@ -539,20 +538,10 @@ section#manjaro {
     grid-area: 1 / 1;
   }
 
-  img.ss-1 {
-    width: min(calc(100% - 2em), 700px);
-  }
-  div.ss-2 {
-    display: grid;
-    place-items: center;
-    min-height: 30svh;
-  }
-  img.ss-2 {
-    width: min(100%, 323px);
-    opacity: 0.7;
+  img.ss-error {
+    width: min(100%, 480px);
   }
 }
-
 </style>
 
 <section id="manjaro" class="distro">
@@ -573,8 +562,26 @@ else about this distro)</p>
 <p>
 unlike alpine, we need to decide beforehand which desktop we want (their <a
 href="https://manjaro.org/products/download/arm" target="_blank">download</a>
-page has good oneline descriptions of all of them btw). I'll try gnome and xfce
-flavored ones.
+page has good oneline descriptions of all of them btw). I'll try the gnome and
+xfce flavored ones.
+</p>
+
+<pre>mkdir manjaro && cd manjaro
+curl -fLO 'https://github.com/manjaro-arm/generic-efi-images/releases/download/23.02/Manjaro-ARM-xfce-generic-efi-23.02.img.xz'
+gunzip Manjaro-*.xz
+../qvm -drive file=Manjaro-ARM-xfce-generic-efi-23.02.img,format=raw,media=cdrom
+</pre>
+
+<div class="bss">
+<img class="bss ss-error" src="i/manjaro/ss-1.avif" alt="error from the manjaro installer">
+</div>
+
+<p>
+things are not off to a good start. this is the second error, I'd actually
+downloaded the gnome flavor first, which bailed out even earlier, before I
+figured I needed the &ldquo;generic EFI&rdquo; variant. to speed things up
+(their downloads are slow &mdash; I have alpine to compare against) I got the
+presumably smaller xfce image the second time. but now this.
 </p>
 
 </section>
