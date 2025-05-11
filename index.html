@@ -290,7 +290,7 @@ curl -fLO 'https://dl-cdn.alpinelinux.org/alpine/v3.21/releases/aarch64/alpine-s
 <div class="bss ss-1">
 <img class="bss ss-1" src="i/alpine/ss-1.avif" alt="login as root and setup-alpine">
 </div>
-<p><kbd>ENTER</kbd> <kbd>ENTER</kbd>, <code>reboot</code>.
+<p><kbd>ENTER</kbd> <kbd>ENTER</kbd>, <code>reboot</code>.</p>
 
 <div class="bss ss-2">
 <img class="bss ss-2" src="i/alpine/ss-2.avif" alt="wait for graphics display">
@@ -445,6 +445,33 @@ quicksand of linux packages rabbitholes...)
 </aside>
 </aside>
 
+<p>
+next up is mate. setup is faster because I can use the backing image as the
+mid-way checkpoint.
+</p>
+
+<pre>rm disk.qcow2 && rm edk2-arm-vars.fd
+qemu-img create -f qcow2 -b disk-base.qcow2 -F qcow2 disk.qcow2 40G
+../qvm
+setup-desktop
+reboot
+</pre>
+
+<br>
+
+<div class="ss">
+<div class="label">mate</div>
+<img src="i/alpine/ss-mate.avif" alt="screenshot of mate">
+</div>
+
+<p>
+same category as xfce. snappy, no lag. fonts seem a bit better than xfce (but I
+might be imagining it too). visually I like (or am more used to) xfce.
+</p>
+
+<p>
+next is sway. same steps as above.
+</p>
 
 </section>
 
