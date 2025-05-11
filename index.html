@@ -200,9 +200,17 @@ section.distro {
     max-width: 100%;
   }
 
+  p, pre {
+   margin-inline: var(--main-margin);
+  }
+
   aside {
-    margin-inline: var(--main-margin);
+    margin-inline: calc(var(--main-margin) * 0.25);
     border-inline-start: 1px dashed color-mix(in srgb, currentColor, transparent);
+
+    p {
+      margin-inline: calc(var(--main-margin) * 0.75);
+    }
   }
 }
 
@@ -230,9 +238,6 @@ section#alpine {
     max-width: 100%;
     filter: invert(1);
     z-index: 1;
-  }
-  p, pre {
-   margin-inline: var(--main-margin);
   }
   div.bss {
     margin-block: 1rlh;
@@ -267,9 +272,9 @@ section#alpine {
 
 <section id="alpine" class="distro">
 <div class="banner">
-<img class="banner" src="i/alpine/banner.avif">
+<img class="banner" src="i/alpine/banner.avif" alt="">
 <div class="logo">
-<img class="logo" src="i/alpine/alpinelinux-logo.svg">
+<img class="logo" src="i/alpine/alpinelinux-logo.svg" alt="alpinelinux logo">
 </div>
 </div>
 <p>
@@ -282,12 +287,12 @@ curl -fLO 'https://dl-cdn.alpinelinux.org/alpine/v3.21/releases/aarch64/alpine-s
 ../qvm -cdrom alpine-*.iso
 </pre>
 <div class="bss ss-1">
-<img class="bss ss-1" src="i/alpine/ss-1.avif">
+<img class="bss ss-1" src="i/alpine/ss-1.avif" alt="login as root and setup-alpine">
 </div>
 <p><kbd>ENTER</kbd> <kbd>ENTER</kbd>, <code>reboot</code>.
 
 <div class="bss ss-2">
-<img class="bss ss-2" src="i/alpine/ss-2.avif">
+<img class="bss ss-2" src="i/alpine/ss-2.avif" alt="wait for graphics display">
 </div>
 <p>
 looking at the serial console (<kbd>Ctrl-Alt-2</kbd>) shows that the OS is still
@@ -297,7 +302,7 @@ booting, so back to the graphics display (<kbd>Ctrl-Alt-1</kbd>) and wait.
 login as root again, and install X.
 </p>
 <div class="bss ss-3">
-<img class="bss ss-3" src="i/alpine/ss-3.avif">
+<img class="bss ss-3" src="i/alpine/ss-3.avif" alt="setup-desktop">
 </div>
 <p>
 which one? let's try them all!
@@ -307,7 +312,7 @@ which one? let's try them all!
 
 <div class="ss">
 <div class="label">gnome</div>
-<img src="i/alpine/ss-gnome.avif">
+<img src="i/alpine/ss-gnome.avif" alt="screenshot of gnome">
 </div>
 
 <p>
@@ -366,11 +371,11 @@ reboot
 </pre>
 
 <p>indeed, now it looks proper. seeing this, my first impression is of a gnome
-:: macos vs kde :: windows inspiration.</p>
+:: macos vs kde :: windows inspiration (not copying; using gnome felt fresh)</p>
 
 <div class="ss">
 <div class="label">plasma</div>
-<img src="i/alpine/ss-plasma.avif">
+<img src="i/alpine/ss-plasma.avif" alt="screenshot of plasma">
 </div>
 
 
