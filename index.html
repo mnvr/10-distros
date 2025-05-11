@@ -84,8 +84,6 @@ a.rev {
   text-decoration: none;
   padding: 0.1em 0.2em;
   font-weight: bold;
-}
-section.host a.rev {
   background-color: var(--color);
   color: var(--background-color);
 }
@@ -183,6 +181,11 @@ that's all prep done. <b><em>let's go!</em></b>
 
 <style>
 section.distro {
+  background-color: var(--background-color);
+  color: var(--color);
+
+  padding-block-end: 1rlh;
+
   div.ss {
     position: relative;
   }
@@ -232,10 +235,8 @@ section.distro {
 }
 
 section#alpine {
-  --a-blue: rgb(43, 145, 234);
-  background-color: var(--a-blue);
-  color: white;
-  padding-block-end: 1rlh;
+  --background-color: rgb(43, 145, 234);
+  --color: white;
 
   div.banner {
     display: grid;
@@ -267,10 +268,6 @@ section#alpine {
   img.ss-2 {
     width: min(100%, 323px);
     opacity: 0.7;
-  }
-  a.rev {
-    background-color: white;
-    color: var(--a-blue);
   }
 }
 </style>
@@ -516,28 +513,32 @@ before, then reboot.
 
 <p>similar to plasma; less polished, but faster.</p>
 
-<p>before moving on, I'd like to take this chance to thank Alpine. I've used
-this great distribution to base production docker images for years, and it is
-was a similar pleasure to use it in the desktop context too.</p>
+
+<aside>
+<p>
+before moving on to the next distro, I'd like to take this chance to thank
+Alpine. I've used this great distribution to base production docker images for
+years, and it is was a similar pleasure to use it in the desktop context
+too.
+</p>
+</aside>
+
 </section>
 
 <style>
 section#manjaro {
-  --background-color: light-dark(#3c3335, rgb(36, 34, 34));
-  --color:  #35bfa4;
-  background-color: var(--background-color);
-  color: var(--color);
-  padding-block-end: 1rlh;
+  --background-color: #3c3335;
+  --color: #35bfa4;
 
   div.banner {
     display: grid;
     place-items: center;
-    min-height: 40svh;
-    background: linear-gradient(black, var(--background-color));
+    min-height: 50svh;
   }
   div.banner > * {
     grid-area: 1 / 1;
   }
+
   img.ss-1 {
     width: min(calc(100% - 2em), 700px);
   }
@@ -550,10 +551,6 @@ section#manjaro {
     width: min(100%, 323px);
     opacity: 0.7;
   }
-  a.rev {
-    background-color: var(--color);
-    color: var(--background-color);
-  }
 }
 
 </style>
@@ -561,19 +558,24 @@ section#manjaro {
 <section id="manjaro" class="distro">
 
 <div class="banner">
-<div class="logo">
-<img class="logo" src="i/manjaro/logo.svg" alt="manjaro logo">
+<img src="i/manjaro/logo.svg" alt="manjaro logo">
 </div>
-</div>
+
 <p>
 <a class="rev" href="https://manjaro.org" target="_blank">
 manjaro.org
 </a>
 </p>
 
-<p>I love the Manjaro icon (that's the reason I'm trying it out)</p>
+<p>I love the Manjaro icon (that's the reason I'm trying it out, I know nothing
+else about this distro)</p>
 
-<p>they support all the  out. their do</p>
+<p>
+unlike alpine, we need to decide beforehand which desktop we want (their <a
+href="https://manjaro.org/products/download/arm" target="_blank">download</a>
+page has good oneline descriptions of all of them btw). I'll try gnome and xfce
+flavored ones.
+</p>
 
 </section>
 
