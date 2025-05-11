@@ -579,10 +579,40 @@ gunzip Manjaro-*.xz
 <p>
 things are not off to a good start. this is the second error, I'd actually
 downloaded the gnome flavor first, which bailed out even earlier, before I
-figured I needed the &ldquo;generic EFI&rdquo; variant. to speed things up
-(their downloads are slow &mdash; I have alpine to compare against) I got the
-presumably smaller xfce image the second time. but now this.
+figured I needed the &ldquo;generic EFI&rdquo; variant. to speed things up I got
+the presumably smaller xfce image the second time. but now this.
 </p>
+
+<p>
+eventually I figured that the EFI writable pflash drive that I was mounting as
+part of my <code>qvm</code> script &mdash; the line <code>-drive
+file=edk2-arm-vars.fd,if=pflash,format=raw</code> &mdash; was what was making
+manjaro unhappy. so I removed it, and instead of the script, ran the following
+qemu invocation:
+</p>
+
+<pre>qemu-system-aarch64 \
+  -machine virt \
+  -cpu host \
+  -accel hvf \
+  -m 2G \
+  -drive file=../edk2-aarch64-code.fd,if=pflash,format=raw,readonly=on \
+  -drive file=Manjaro-ARM-xfce-generic-efi-23.02.img,format=raw \
+  -drive file=disk.qcow2,if=virtio,format=qcow2 \
+  -monitor none -parallel none \
+  -device virtio-gpu \
+  -device qemu-xhci \
+  -device usb-kbd \
+  -device usb-tablet
+</pre>
+
+<p>success!</p>
+
+<div class="ss">
+<div class="label">xfce</div>
+<img src="i/manjaro/ss-setup.avif" alt="successful start of manjaro installer">
+</div>
+
 
 </section>
 
