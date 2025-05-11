@@ -204,11 +204,15 @@ section.distro {
    margin-inline: var(--main-margin);
   }
 
+  p {
+    max-width: 29rem;
+  }
+
   aside {
     margin-inline: calc(var(--main-margin));
     border-inline-start: 1px dashed color-mix(in srgb, currentColor, transparent);
 
-    p {
+    aside, p {
       margin-inline: calc(var(--main-margin) * 0.75);
     }
   }
@@ -263,9 +267,6 @@ section#alpine {
   a.rev {
     background-color: white;
     color: var(--a-blue);
-  }
-  p {
-    max-width: 29rem;
   }
 }
 </style>
@@ -398,10 +399,51 @@ qemu-img create -f qcow2 disk-base.qcow2 40G
 ln -s disk-base.qcow2 disk.qcow2
 ../qvm -cdrom alpine-*.iso
 setup-alpine
-reboot
+poweroff
+rm disk.qcow2
+qemu-img create -f qcow2 -b disk-base.qcow2 -F qcow2 disk.qcow2 40G
+../qvm
 setup-desktop
 reboot
 </pre>
+
+<p>
+xfce's snappy!
+</p>
+
+<div class="ss">
+<div class="label">xfce</div>
+<img src="i/alpine/ss-xfce.avif" alt="screenshot of xfce">
+</div>
+
+<p>
+Pretty much the flip of the previous two. Plain look, fonts are less crisp, the
+colors look a bit washed out on my P3 display, there's no way to provide a color
+profile.
+</p>
+
+<p>
+But it is fast, lagless. Does not hang on sleep.
+</p>
+
+<aside>
+<p>
+Before starting on writing this, I'd installed a test version of alpine, going
+with <code>xfce</code> based on prior (non-alpine) good experience with it.
+</p>
+<p>
+So I've already been using this combination happily in another VM for a few days
+and have no complains with it
+</p>
+<aside>
+<p>
+(apart from the colors. apparently I'm supposed to install
+<code>colord</code>, but there's no package for <code>aarch64</code>, I could
+compile with source, but I've been delaying that out of laziness and the
+quicksand of linux packages rabbitholes...)
+</p>
+</aside>
+</aside>
 
 
 </section>
