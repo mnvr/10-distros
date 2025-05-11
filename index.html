@@ -541,6 +541,10 @@ section#manjaro {
   img.ss-error {
     width: min(100%, 480px);
   }
+
+  img.ss-efi {
+    max-width: min(100%, 640px);
+  }
 }
 </style>
 
@@ -612,6 +616,22 @@ qemu invocation:
 <div class="label">xfce</div>
 <img src="i/manjaro/ss-setup.avif" alt="successful start of manjaro installer">
 </div>
+
+<p>
+The installer is nice, it detects the time zone automatically, and gives me an
+option to switch to Dvorak during install itself (neither of which alpine
+could). But it doesn't seem to install anything? because it never asks for the
+destination drive.
+</p>
+
+<p>
+Indeed, on rebooting, I land here.
+</p>
+
+<div>
+<img class="ss-efi" src="i/manjaro/ss-efi.avif" alt="efi menu during manjaro installation">
+</div>
+
 
 
 </section>
