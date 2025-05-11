@@ -205,7 +205,7 @@ section.distro {
   }
 
   aside {
-    margin-inline: calc(var(--main-margin) * 0.25);
+    margin-inline: calc(var(--main-margin));
     border-inline-start: 1px dashed color-mix(in srgb, currentColor, transparent);
 
     p {
@@ -320,8 +320,11 @@ looks great. supports color profiles (otherwise the colors look washed out on P3
 displays). fonts look crisp.
 </p>
 <p>
-sluggish though (possibly, because while the CPU's native, the graphics card I'm
-using &mdash; <code>virtio-gpu</code> &mdash; is emulated).
+sluggish (likely because the graphics card I'm using (<code>virtio-gpu</code>)
+is emulated; there are patches around for a virtualized
+(&ldquo;native&rdquo;-ish) card but those are not upstream yet). the display
+also hung a few times when my laptop went to sleep (also likely due to broken
+emulation)
 </p>
 
 <aside>
@@ -362,13 +365,17 @@ reboot
 <p>I get something different, but traces of gnome. have I summoned a hybrid?
 quick, let me recreate the entire machine</p>
 
-<pre>rm disk.qcow2
+<pre>rm disk.qcow2 && rm edk2-arm-vars.fd
 ../qvm -cdrom alpine-*.iso
 setup-alpine
 reboot
 setup-desktop
 reboot
 </pre>
+
+<aside>
+<p>virtio disks use the prefix <b>v</b> (e.g. <code>vda</code>).</p>
+</aside>
 
 <p>indeed, now it looks proper. seeing this, my first impression is of a gnome
 :: macos vs kde :: windows inspiration (not copying; using gnome felt fresh)</p>
@@ -377,6 +384,24 @@ reboot
 <div class="label">plasma</div>
 <img src="i/alpine/ss-plasma.avif" alt="screenshot of plasma">
 </div>
+
+<p>
+Similar good and bad points as gnome. I liked gnome's look more.
+</p>
+
+<p>
+next up is xfce. I also have a better way using backing images.
+</p>
+
+<pre>rm disk.qcow2 && rm edk2-arm-vars.fd
+qemu-img create -f qcow2 disk-base.qcow2 40G
+ln -s disk-base.qcow2 disk.qcow2
+../qvm -cdrom alpine-*.iso
+setup-alpine
+reboot
+setup-desktop
+reboot
+</pre>
 
 
 </section>
