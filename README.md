@@ -1,4 +1,4 @@
-Source code for 10 distros in 10 days.
+Source code for [10 distros in 10 days](https://mnvr.github.io/10-distros/).
 
 ## Viewing locally
 
