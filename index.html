@@ -640,9 +640,12 @@ I know I'm holding it wrong, but it's time to move on.
 
 <style>
 section#fedora {
-  --background-color: rgb(113, 22, 14);
-  --color: rgb(73, 111, 176);
-  /* --color: rgb(145, 217, 82); */
+  --background-color: rgb(251, 235, 235);
+  --color: rgb(42, 103, 164);
+
+  a.rev {
+    background-color: rgb(73, 111, 176);
+  }
 
   div.banner {
     display: grid;
@@ -672,10 +675,11 @@ fedoraproject.org
 
 <div id="banner"></div>
 <p>
-RHEL's new centos, the name's a hattip. First class support for podman.
+RHEL&rsquo;s new centos, the name&rsquo;s a hattip. First class support for podman.
 </p>
 
-<pre>curl -fLO 'https://download.fedoraproject.org/pub/fedora/linux/releases/42/Workstation/aarch64/iso/Fedora-Workstation-Live-42-1.1.aarch64.iso'
+<pre>mkdir fedora && cd fedora
+curl -fLO 'https://download.fedoraproject.org/pub/fedora/linux/releases/42/Workstation/aarch64/iso/Fedora-Workstation-Live-42-1.1.aarch64.iso'
 </pre>
 
 
