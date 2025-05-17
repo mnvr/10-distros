@@ -101,17 +101,19 @@ pre {
 </div>
 
 <div class="dlist">
-alpine · alpine · alpine · alpine · alpine · alpine · alpine · alpine · alpine ·
-alpine · alpine · alpine · alpine · alpine · alpine · alpine · alpine · alpine ·
-alpine · alpine · alpine · alpine · alpine · alpine · alpine · alpine · alpine ·
-alpine · alpine · alpine · alpine · alpine · alpine · alpine · alpine · alpine ·
+alpine · manjaro · fedora · alpine · alpine · manjaro · fedora ·
+alpine · manjaro · fedora · alpine · alpine · manjaro · fedora ·
+alpine · manjaro · fedora · alpine · alpine · manjaro · fedora ·
+alpine · manjaro · fedora · alpine · alpine · manjaro · fedora ·
+alpine · manjaro · fedora · alpine · alpine · manjaro · fedora ·
 </div>
 
 <div class="dlist dlist-mob">
-alpine · alpine · alpine · alpine · alpine · alpine · alpine · alpine · alpine ·
-alpine · alpine · alpine · alpine · alpine · alpine · alpine · alpine · alpine ·
-alpine · alpine · alpine · alpine · alpine · alpine · alpine · alpine · alpine ·
-alpine · alpine · alpine · alpine · alpine · alpine · alpine · alpine · alpine ·
+fedora · alpine · alpine · manjaro · fedora ·
+alpine · manjaro · fedora · alpine · alpine · manjaro · fedora ·
+alpine · manjaro · fedora · alpine · alpine · manjaro · fedora ·
+alpine · manjaro · fedora · alpine · alpine · manjaro · fedora ·
+alpine · manjaro · fedora · alpine · alpine · manjaro · fedora ·
 </div>
 
 <section class="one margined">
@@ -680,8 +682,51 @@ RHEL&rsquo;s new centos, the name&rsquo;s a hattip. First class support for podm
 
 <pre>mkdir fedora && cd fedora
 curl -fLO 'https://download.fedoraproject.org/pub/fedora/linux/releases/42/Workstation/aarch64/iso/Fedora-Workstation-Live-42-1.1.aarch64.iso'
+../qvm -cdrom Fedora-*.iso
 </pre>
 
+<p>
+the live CD opens to a beautiful gnome in a moominesque vista, with a partial
+prime factorization of 42 tatooed on a tree.
+</p>
+
+<div class="ss">
+<div class="label">fedora workstation</div>
+<img src="i/fedora/ss-workstation.avif" alt="screenshot of fedora workstation">
+</div>
+
+<p>
+however, it is sluggish, as gnome/kde were with alpine (again, no fault of its
+own, I'm just running it an underpowered VM with an emulated graphics card on a
+laptop without enough RAM to spare). I also try with more RAM, <code>-m
+4G</code>, which is the minimum fedora lists, and that does help a lot, but
+still not pleasant.
+</p>
+
+<p>so it's back to xfce</p>
+
+<pre>curl -fLO 'https://download.fedoraproject.org/pub/fedora/linux/releases/42/Spins/aarch64/iso/Fedora-Xfce-Live-42-1.1.aarch64.iso'
+../qvm -cdrom Fedora-Xfce-*.iso
+</pre>
+
+<p>
+much better, but still sluggish &mdash; I'm comparing to using xfce on alpine. I
+haven't installed on the hard disk yet, but it isn't a "real" cdrom anyways. a
+quick look at <code>top</code> shows the system already using swap even though
+RAM is available (but determining memory usage is fraught with misconceptions
+I'm not immune too; I only looked here since it <em>felt</em> slower). I also
+see <em>systemd</em> peeking in the list of processes...
+</p>
+
+<p>
+let me try one of the alternative &ldquo;spins&rdquo;, to see if one is
+lighter. most of them don't seem to offer aarch64 media, aha, the miracle one
+does.
+</p>
+
+<pre>curl -fLO 'https://download.fedoraproject.org/pub/fedora/linux/releases/42/Spins/aarch64/iso/Fedora-MiracleWM-Live-42-1.1.aarch64.iso'
+../qvm -cdrom Fedora-MiracleWM-*.iso
+</pre>
 
 </section>
 
