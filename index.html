@@ -59,11 +59,11 @@ h1 {
     display: none;
   }
 }
-p {
+p, ul {
   line-height: 1.3;
   margin-block: 1lh;
 }
-section.margined {
+:is(section, footer).margined {
   margin-block: 3rlh;
   margin-inline: var(--main-margin);
 }
@@ -87,7 +87,7 @@ a.rev {
   background-color: var(--color);
   color: var(--background-color);
 }
-section.text p {
+section.text :is(p, ul) {
   max-width: 29rem;
 }
 pre {
@@ -100,20 +100,18 @@ pre {
 <h1>10 distros <span class="h1-in">in</span><br> 10 days</h1>
 </div>
 
-<div class="dlist">
-alpine · manjaro · fedora · opensuse · alpine · manjaro · fedora ·
-alpine · manjaro · fedora · alpine · alpine · manjaro · fedora ·
-alpine · manjaro · fedora · alpine · alpine · manjaro · fedora ·
-alpine · manjaro · fedora · alpine · alpine · manjaro · fedora ·
-alpine · manjaro · fedora · alpine · alpine · manjaro · fedora ·
+<div class="dlist" aria-hidden="true">
+alpine · manjaro · fedora · opensuse · alpine · manjaro · fedora · opensuse ·
+alpine · manjaro · fedora · opensuse · alpine · manjaro · fedora · opensuse ·
+alpine · manjaro · fedora · opensuse · alpine · manjaro · fedora · opensuse ·
+alpine · manjaro · fedora · opensuse · alpine · manjaro · fedora · opensuse ·
 </div>
 
-<div class="dlist dlist-mob">
-fedora · alpine · alpine · manjaro · fedora ·
-alpine · manjaro · fedora · alpine · alpine · manjaro · fedora ·
-alpine · manjaro · fedora · alpine · alpine · manjaro · fedora ·
-alpine · manjaro · fedora · alpine · alpine · manjaro · fedora ·
-alpine · manjaro · fedora · alpine · alpine · manjaro · fedora ·
+<div class="dlist dlist-mob" aria-hidden="true">
+fedora · opensuse · alpine · manjaro · fedora · opensuse ·
+alpine · manjaro · fedora · opensuse · alpine · manjaro · fedora · opensuse ·
+alpine · manjaro · fedora · opensuse · alpine · manjaro · fedora · opensuse ·
+alpine · manjaro · fedora · opensuse · alpine · manjaro · fedora · opensuse ·
 </div>
 
 <section class="one margined">
@@ -737,6 +735,8 @@ nope, not much faster. I like the look though.
 section#opensuse {
   --background-color: rgb(131, 184, 66);
   --color: white;
+    padding-block-end: 0;
+
 
   a.rev {
     --background-color: rgb(103, 147, 49);
@@ -748,6 +748,15 @@ section#opensuse {
 
   div.banner img {
     width: min(100%, 200px);
+  }
+
+  .ss-2 img {
+    width: min(100%, 999px);
+  }
+
+  div.transition {
+    background: linear-gradient(to bottom, var(--background-color), rgb(43, 145, 234));
+    padding-block-end: 1lh;
   }
 }
 </style>
@@ -776,8 +785,93 @@ curl -fLO 'https://download.opensuse.org/ports/aarch64/tumbleweed/iso/openSUSE-T
 <img src="i/opensuse/ss-netinstall.avif" alt="screenshot of opensuse netinstall">
 </div>
 
+<div class="transition">
+<p>
+I press <kbd>ENTER</kbd>, then wait, and wait, but nothing happens.
+eventually, I give up and switch to qemu serial console to find that zalgo has
+been unleashed
+</p>
+
+<div class="ss ss-2">
+<img src="i/opensuse/ss-zalgo.avif" alt="screenshot of opensuse netinstallserial port">
+</div>
+
+<p>
+I find this amusing, but instead of tinkering and fixing this issue, it also
+makes me realize &mdash; I've already found what I was looking for.
+</p>
+
+<p>alpine and xfce</p>
+</div>
+
 </section>
 
+<style>
+ul {
+  padding-left: 2em;
+}
+li {
+  margin-block: 1lh;
+}
+img.sb {
+  max-width: min(100%, 600px);
+}
+</style>
+<section class="margined text epilogue">
+<h3>epilogue</h3>
+<p>
+I'd started with the intent of visting 10 distros across 10 weekend or other days
+when I had time to fritter
+</p>
+<p>
+by a coincidence, or a subconsciously informed guess, the first thing I'd tried
+was alpine with xfce
+</p>
+<p>
+I continued half-way-ish, trying more distros, more desktop environments etc,
+and I have educated myself with more information than what I'd started with, but
+it feels silly to tinker on when I already have a working setup that also aligns
+with me:
+</p>
+<ul>
+<li>snappy in a lil 2G ram qemu vm that can keep running in the background for
+sporadic tinkers</li>
+<li>musl-ed (the dynamic linking gnu fanaticism has wasted more human time than
+is justified for a piece of software)</li>
+<li>no systemd (irrespective of the systemd debate, because otherwise it'll feel
+like <em>work</em> linux, not tinker linux)</li>
+</ul>
+<p>
+I also found out that despite there being almost endless number of distros, the
+options for aarch64 are much more limited &mdash; the majority of distros are
+also x86 only (I think this'll change soon!)
+</p>
+<p>
+now I'm ending this trip, happy for now with the alpine with xfce vm I purchased
+with my time
+</p>
+<p>
+there, however, are still two distros that I'd like to play with some day
+</p>
+<p>
+the first one is <a href="https://sabotage-linux.github.io"
+target="_blank">sabotage linux</a>. its beautiful website has been planted in my
+head every since I came across it
+</p>
+<img class="sb" src="i/sabotage.avif">
+<p>
+the second is the all knowing <a href="https://www.gentoo.org"
+target="_blank">gentoo</a>
+</p>
+<p>
+<i>manav rathi</i><br>
+<time><i>may 2025</i></time>
+</p>
+</section>
+
+<footer class="margined">
+<a href="https://github.com/mnvr/10-distros" target="_blank">source</a>
+</footer>
 </body>
 
 </html>
